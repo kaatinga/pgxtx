@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/jackc/pgx/v5 v5.6.0
-	github.com/kaatinga/dummylogger v0.0.0-20240706205004-db9927f42e98
+	github.com/kaatinga/dummylogger v0.0.0-20240714131054-57fef8240e48
 )
 
 require (
