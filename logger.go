@@ -1,11 +1,11 @@
 package pgxtx
 
 import (
-	"github.com/kaatinga/dummylogger"
+	"github.com/rs/zerolog"
 )
 
-var l = dummylogger.Get()
+var logger zerolog.Logger
 
-func Init(logger dummylogger.I) {
-	dummylogger.Set(logger)
+func Init(in zerolog.Logger) {
+	logger = in
 }

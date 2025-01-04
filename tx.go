@@ -6,6 +6,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/rs/zerolog"
 )
 
 type QueryInTx func(context.Context, pgx.Tx) error
@@ -21,11 +22,11 @@ func InTx(ctx context.Context, pool *pgxpool.Pool, fns ...QueryInTx) (err error)
 	defer func() {
 		rollback := func() {
 			if rErr := tx.Rollback(ctx); rErr != nil {
-				l.Errorf("transaction rollback failed: %s", rErr.Error())
+				logger.WithLevel(zerolog.ErrorLevel).Msgf("transaction rollback failed: %s", rErr.Error())
 			}
 		}
 		if p := recover(); p != nil {
-			l.Errorf("panic recovered in transaction: %v", p)
+			logger.WithLevel(zerolog.ErrorLevel).Msgf("panic recovered in transaction: %v", p)
 			rollback()
 			panic(p)
 		}
