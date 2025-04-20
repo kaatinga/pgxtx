@@ -3,8 +3,8 @@ module github.com/kaatinga/pgxtx
 go 1.22
 
 require (
-	github.com/jackc/pgx/v5 v5.7.2
-	github.com/rs/zerolog v1.33.0
+	github.com/jackc/pgx/v5 v5.7.4
+	github.com/rs/zerolog v1.34.0
 )
 
 require (
