@@ -22,7 +22,7 @@ func InTx(ctx context.Context, pool *pgxpool.Pool, fns ...QueryInTx) (err error)
 	defer func() {
 		rollback := func() {
 			if rErr := tx.Rollback(ctx); rErr != nil {
-				logger.WithLevel(zerolog.ErrorLevel).Msgf("transaction rollback failed: %s", rErr.Error())
+				logger.Err(rErr).Msg("transaction rollback failed")
 			}
 		}
 		if p := recover(); p != nil {

@@ -3,7 +3,7 @@ module github.com/kaatinga/pgxtx
 go 1.23.0
 
 require (
-	github.com/jackc/pgx/v5 v5.7.5
+	github.com/jackc/pgx/v5 v5.7.6
 	github.com/rs/zerolog v1.34.0
 )
 
